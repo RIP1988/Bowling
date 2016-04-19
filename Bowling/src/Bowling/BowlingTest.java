@@ -6,6 +6,12 @@ import org.junit.Test;
 
 public class BowlingTest {
 
+	@Test (expected = Exception.class)
+	public void shouldThrowExceptionIfIncorrectNumberOfPinsInRow() {
+		Game game = new Game();
+		game.roll(-5);
+	}
+	
 	@Test
 	public void test1() {
 		Game game = new Game();

@@ -21,6 +21,15 @@ public class Game implements BowlingGameResultCalculator {
 	}
 
 	public void roll(int numberOfPins) {
+		try {
+			if (numberOfPins<0 || numberOfPins>10) {
+				throw new Exception();
+			}
+		}
+		catch (Exception e) {
+			System.out.println("Niepoprawna wartoœæ rzutu!");
+			throw new RuntimeException();
+		}
 		rounds.get(0).roll(numberOfPins);
 	}
 
