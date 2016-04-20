@@ -7,7 +7,7 @@ public class Game implements BowlingGameResultCalculator {
 	private LinkedList<Round> rounds = new LinkedList<Round>();
 
 	public Game() {
-		rounds = giveAllRounds();
+		rounds = giveAll10Rounds();
 	}
 
 	public void roll(int numberOfPins) {
@@ -28,8 +28,8 @@ public class Game implements BowlingGameResultCalculator {
 	public boolean isFinished() {
 		return rounds.getLast().isFinished();
 	}
-	
-	private LinkedList<Round> giveAllRounds() {
+
+	private LinkedList<Round> giveAll10Rounds() {
 		List<Round> tempRounds = new LinkedList<Round>();
 		LastRound lastRound = new LastRound();
 		LinkedList<Round> rounds = new LinkedList<Round>();
@@ -40,9 +40,8 @@ public class Game implements BowlingGameResultCalculator {
 		for (int i = 0; i < 9; i++) {
 			tempRounds.get(i).setNextRound(tempRounds.get(i + 1));
 		}
-		for (Round round : tempRounds) {
-			rounds.add(round);
-		}
+		rounds.addAll(tempRounds);
+
 		return rounds;
 	}
 
