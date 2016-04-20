@@ -15,14 +15,15 @@ public class Game implements BowlingGameResultCalculator {
 		for (int i = 0; i < 9; i++) {
 			tempRounds.get(i).setNextRound(tempRounds.get(i + 1));
 		}
-		for (Round round : tempRounds) {
+		for (Round round : tempRounds) {// addAll + prywatna metoda
 			rounds.add(round);
 		}
 	}
 
 	public void roll(int numberOfPins) {
-			if (numberOfPins<0 || numberOfPins>10)
-				throw new IllegalArgumentException("Niepoprawna ilosc kregli");	
+		if (numberOfPins < 0 || numberOfPins > 10) {
+			throw new IllegalArgumentException("Niepoprawna ilosc kregli");
+		}
 		rounds.get(0).roll(numberOfPins);
 	}
 

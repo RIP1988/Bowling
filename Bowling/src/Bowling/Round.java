@@ -17,15 +17,13 @@ public class Round {
 	public void roll(Integer roll) {
 		if (!isFinished()) {
 			rolls.add(roll);
-		} else
+		} else {
 			nextRound.roll(roll);
+		}
 	}
 	
 	public boolean isFinished() {
-		if (rolls.size() == 2 || (rolls.size() > 0 && rolls.get(0) == 10)) {
-			return true;
-		}
-		return false;
+		return (rolls.size() == 2 || (rolls.size() > 0 && rolls.get(0) == 10));
 	}
 	
 	public int give1stRollScore() {
