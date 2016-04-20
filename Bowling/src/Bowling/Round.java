@@ -20,14 +20,14 @@ public class Round {
 		} else
 			nextRound.roll(roll);
 	}
-
+	
 	public boolean isFinished() {
 		if (rolls.size() == 2 || (rolls.size() > 0 && rolls.get(0) == 10)) {
 			return true;
 		}
 		return false;
 	}
-
+	
 	public int give1stRollScore() {
 		int score = 0;
 		if (rolls.size() > 0)
@@ -62,5 +62,6 @@ public class Round {
 		}
 		return score;
 	}
+
 
 }
