@@ -1,7 +1,7 @@
 package Bowling;
 
 public class CheckLista {
-	/*
+	/*zmiana do kontroli wczytania nowej wersji z neta
 	 * !!!			Wyrzucenie wyjatku jesli liczba kregli w rzucie > 10
 	 * !!!			Wyrzucenie wyjatku jesli liczba kregli w rzucie < 0
 	 * !!!			Wyrzucenie wyjatku jesli suma dwoch rzutow rundzie > 10
