@@ -1,23 +1,13 @@
 package Bowling;
 
+import java.util.List;
 import java.util.LinkedList;
 
 public class Game implements BowlingGameResultCalculator {
 	private LinkedList<Round> rounds = new LinkedList<Round>();
 
 	public Game() {
-		LinkedList<Round> tempRounds = new LinkedList<Round>();
-		LastRound lastRound = new LastRound();
-		for (int i = 0; i < 9; i++) {
-			tempRounds.add(new Round());
-		}
-		tempRounds.add(lastRound);
-		for (int i = 0; i < 9; i++) {
-			tempRounds.get(i).setNextRound(tempRounds.get(i + 1));
-		}
-		for (Round round : tempRounds) {// addAll + prywatna metoda
-			rounds.add(round);
-		}
+		rounds = giveAllRounds();
 	}
 
 	public void roll(int numberOfPins) {
@@ -37,6 +27,23 @@ public class Game implements BowlingGameResultCalculator {
 
 	public boolean isFinished() {
 		return rounds.getLast().isFinished();
+	}
+	
+	private LinkedList<Round> giveAllRounds() {
+		List<Round> tempRounds = new LinkedList<Round>();
+		LastRound lastRound = new LastRound();
+		LinkedList<Round> rounds = new LinkedList<Round>();
+		for (int i = 0; i < 9; i++) {
+			tempRounds.add(new Round());
+		}
+		tempRounds.add(lastRound);
+		for (int i = 0; i < 9; i++) {
+			tempRounds.get(i).setNextRound(tempRounds.get(i + 1));
+		}
+		for (Round round : tempRounds) {
+			rounds.add(round);
+		}
+		return rounds;
 	}
 
 }

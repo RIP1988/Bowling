@@ -29,15 +29,12 @@ public class LastRound extends Round {
 	}
 
 	public void roll(Integer roll) {
-		try {
 			if (!isFinished()) {
 				rolls.add(roll);
 			} else
-				throw new Exception();
-		} catch (Exception e) {
-			System.out.println("Gra skonczona. Nie mozna oddawac wiecej rzutow.");
-		}
-	}
+				throw new RuntimeException("Za duzo rzutow. Gra ju¿ siê skoñczy³a.");
+		} 
+	
 
 	public boolean isFinished() {
 		int score = 0;
