@@ -4,29 +4,29 @@ import java.util.List;
 import java.util.LinkedList;
 
 public class Game implements BowlingGameResultCalculator {
-	private LinkedList<Round> rounds = new LinkedList<Round>();
+	private LinkedList<Round> allRounds = new LinkedList<Round>();
 
 	public Game() {
-		rounds = giveAll10Rounds();
+		allRounds = giveAll10Rounds();
 	}
 
 	public void roll(int numberOfPins) {
 		if (numberOfPins < 0 || numberOfPins > 10) {
 			throw new IllegalArgumentException("Niepoprawna ilosc kregli");
 		}
-		rounds.get(0).roll(numberOfPins);
+		allRounds.get(0).roll(numberOfPins);
 	}
 
 	public int score() {
 		int score = 0;
-		for (Round round : rounds) {
+		for (Round round : allRounds) {
 			score += round.getRoundScore();
 		}
 		return score;
 	}
 
 	public boolean isFinished() {
-		return rounds.getLast().isFinished();
+		return allRounds.getLast().isFinished();
 	}
 
 	private LinkedList<Round> giveAll10Rounds() {

@@ -32,7 +32,7 @@ public class LastRound extends Round {
 			if (!isFinished()) {
 				rolls.add(roll);
 			} else
-				throw new RuntimeException("Za duzo rzutow. Gra ju¿ siê skoñczy³a.");
+				throw new RuntimeException("Za duzo rzutow. Gra ju¿ siê skonczyla.");
 		} 
 	
 
@@ -41,9 +41,7 @@ public class LastRound extends Round {
 		for (Integer roll : rolls) {
 			score += roll;
 		}
-		if ((rolls.size() == 2 && score < MAX_NUMBER_OF_PINS_IN_ROUND) || rolls.size() == 3)
-			return true;
-		return false;
+		return ((rolls.size() == 2 && score < MAX_NUMBER_OF_PINS_IN_ROUND) || rolls.size() == 3);	 
 	}
 
 	public int getRoundScore() {

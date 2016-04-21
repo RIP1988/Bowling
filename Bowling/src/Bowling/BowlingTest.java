@@ -12,8 +12,17 @@ public class BowlingTest {
 		game.roll(-5);
 	}
 	
+	@Test (expected = Exception.class)
+	public void shouldThrowExceptionIfTooManyRollsInGame() {
+		Game game = new Game();
+		int[] results = { 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10 };
+		for (int result : results) {
+			game.roll(result);
+		}
+	}
+	
 	@Test
-	public void test1() {
+	public void shouldReturn5After1RollWith5Pins() {
 		Game game = new Game();
 		game.roll(5);
 		int score = game.score();
@@ -21,7 +30,7 @@ public class BowlingTest {
 	}
 
 	@Test
-	public void test2() {
+	public void shouldReturn6After2RollsWith5And1Pins() {
 		Game game = new Game();
 		int[] results = { 5, 1 };
 		for (int result : results) {
@@ -32,7 +41,7 @@ public class BowlingTest {
 	}
 
 	@Test
-	public void test3() {
+	public void shouldReturn14After3SpecificRolls() {
 		Game game = new Game();
 		int[] results = { 5, 4, 5 };
 		for (int result : results) {
@@ -43,7 +52,7 @@ public class BowlingTest {
 	}
 
 	@Test
-	public void test4() {
+	public void shouldReturn20After4RollsWithSpareInFirstRound() {
 		Game game = new Game();
 		int[] results = { 5, 5, 4, 2 };
 		for (int result : results) {
@@ -54,7 +63,7 @@ public class BowlingTest {
 	}
 
 	@Test
-	public void test5() {
+	public void shouldReturn20After3RollsWithStrikeInFirstRound() {
 		Game game = new Game();
 		int[] results = { 10, 2, 3 };
 		for (int result : results) {
@@ -65,7 +74,7 @@ public class BowlingTest {
 	}
 
 	@Test
-	public void test6() {
+	public void shouldReturn60After3StrikesInRow() {
 		Game game = new Game();
 		int[] results = { 10, 10, 10 };
 		for (int result : results) {
@@ -76,7 +85,7 @@ public class BowlingTest {
 	}
 
 	@Test
-	public void test7() {
+	public void shouldReturn300AfterPerfectGame() {
 		Game game = new Game();
 		int[] results = { 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10 };
 		for (int result : results) {
@@ -87,14 +96,14 @@ public class BowlingTest {
 	}
 
 	@Test
-	public void test8() {
+	public void shouldReturnFalseForNotFinishedGame() {
 		Game game = new Game();
 		boolean isFinished = game.isFinished();
 		assertFalse(isFinished);
 	}
 
 	@Test
-	public void test9() {
+	public void shouldReturnTrueForIsGameFinishedAfter2WeakRollsInLastRound() {
 		Game game = new Game();
 		int[] results = { 10, 10, 10, 10, 10, 10, 10, 10, 10, 5, 2 };
 		for (int result : results) {
@@ -105,7 +114,7 @@ public class BowlingTest {
 	}
 
 	@Test
-	public void test10() {
+	public void shouldReturnfalseForIsFinishedAfterStrikeAnd5PinsInLastRound() {
 		Game game = new Game();
 		int[] results = { 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 5 };
 		for (int result : results) {
@@ -116,7 +125,7 @@ public class BowlingTest {
 	}
 
 	@Test
-	public void test11() {
+	public void shouldReturnFalseForIsFinishedAfterSpareInFirstTwoRolls() {
 		Game game = new Game();
 		int[] results = { 10, 10, 10, 10, 10, 10, 10, 10, 10, 5, 5 };
 		for (int result : results) {
@@ -127,7 +136,7 @@ public class BowlingTest {
 	}
 
 	@Test
-	public void test12() {
+	public void shouldReturnTrueForIsFinishedAfterPerfectGame() {
 		Game game = new Game();
 		int[] results = { 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10 };
 		for (int result : results) {
@@ -137,14 +146,4 @@ public class BowlingTest {
 		assertTrue(isFinished);
 	}
 
-	@Test
-	public void test13() {
-		Game game = new Game();
-		int[] results = { 10, 10, 8, 2, 3, 0, 3, 4, 8, 1, 4, 4, 4, 4, 4, 4, 10, 10, 10 };
-		for (int result : results) {
-			game.roll(result);
-		}
-		int score = game.score();
-		assertEquals(134, score);
-	}
 }
