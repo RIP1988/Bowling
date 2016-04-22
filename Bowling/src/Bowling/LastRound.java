@@ -32,7 +32,7 @@ public class LastRound extends Round {
 			if (!isFinished()) {
 				rolls.add(roll);
 			} else
-				throw new RuntimeException("Za duzo rzutow. Gra ju¿ siê skonczyla.");
+				throw new RuntimeException("Za duzo rzutow. Gra juz sie skonczyla.");
 		} 
 	
 

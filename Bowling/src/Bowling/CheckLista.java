@@ -1,10 +1,10 @@
 package Bowling;
 
 public class CheckLista {
-	/*zmiana do kontroli wczytania nowej wersji z neta
-	 * !!!			Wyrzucenie wyjatku jesli liczba kregli w rzucie > 10
-	 * !!!			Wyrzucenie wyjatku jesli liczba kregli w rzucie < 0
-	 * !!!			Wyrzucenie wyjatku jesli suma dwoch rzutow rundzie > 10
+	/*
+	 * Wyrzucenie wyjatku jesli liczba kregli w rzucie > 10
+	 * Wyrzucenie wyjatku jesli liczba kregli w rzucie < 0
+	 * Wyrzucenie wyjatku jesli suma dwoch rzutow rundzie > 10
 	 * Zwrocenie wyniku 5 po rzucie = 5
 	 * Zwrocenie wyniku 6 po rzutach 5 i 1
 	 * Zwrocenie 14 gdy rzuty {5,4,5}
